@@ -16,7 +16,7 @@
 {%- endstyle -%}
 
 <div class="newsletter center {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
-  <div class="newsletter__wrapper color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+  <div class="newsletter__wrapper color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding{% if section.settings.custom_classname %} {{ section.settings.custom_classname }}{% endif %}">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when '@app' -%}
@@ -139,6 +139,11 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 52
+    },
+    {
+      "type": "text",
+      "id": "custom_classname",
+      "label": "Custom Class"
     }
   ],
   "blocks": [
