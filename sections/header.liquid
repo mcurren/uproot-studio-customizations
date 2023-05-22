@@ -36,7 +36,7 @@
     max-width: {{ section.settings.logo_width }}px;
   }
 
-  @media screen and (min-width: 990px) {
+  @media screen and (min-width: 1140px) {
     header-drawer {
       display: none;
     }
@@ -98,7 +98,7 @@
     }
   }
 
-  @media screen and (min-width: 990px) {
+  @media screen and (min-width: 1140px) {
     .header {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -123,7 +123,7 @@
   </symbol>
 </svg>
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
-  <header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
+  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
     {%- if section.settings.menu != blank -%}
       <header-drawer data-breakpoint="tablet">
         <details id="Details-menu-drawer-container" class="menu-drawer-container">
@@ -147,7 +147,7 @@
                               {% render 'icon-arrow' %}
                               {% render 'icon-caret' %}
                             </summary>
-                            <div id="link-{{ link.title | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce" tabindex="-1">
+                            <div id="link-{{ link.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce" tabindex="-1">
                               <div class="menu-drawer__inner-submenu">
                                 <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
                                   {% render 'icon-arrow' %}
@@ -167,7 +167,7 @@
                                             {% render 'icon-arrow' %}
                                             {% render 'icon-caret' %}
                                           </summary>
-                                          <div id="childlink-{{ childlink.title | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
+                                          <div id="childlink-{{ childlink.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
                                             <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
                                               {% render 'icon-arrow' %}
                                               {{ childlink.title | escape }}
@@ -293,7 +293,6 @@
         </details>
       </header-drawer>
     {%- endif -%}
-
     {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
       <details-modal class="header__search">
         <details>
@@ -369,26 +368,28 @@
       </details-modal>
     {%- endif -%}
 
-    {%- if request.page_type == 'index' -%}
-      <h1 class="header__heading">
-    {%- endif -%}
-        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-          {%- if section.settings.logo != blank -%}
-            {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
-            {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
-            {{ section.settings.logo | image_url: width: section.settings.width | image_tag:
-              class: 'header__heading-logo',
-              widths: '50, 100, 150, 200, 250, 300, 400, 500',
-              height: logo_height,
-              width: section.settings.logo_width,
-              alt: logo_alt
-            }}
-          {%- else -%}
-            <span class="h2">{{ shop.name }}</span>
-          {%- endif -%}
-        </a>
-    {%- if request.page_type == 'index' -%}
-      </h1>
+    {%- if section.settings.logo_position != 'middle-center' -%}
+      {%- if request.page_type == 'index' -%}
+        <h1 class="header__heading">
+      {%- endif -%}
+          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+            {%- if section.settings.logo != blank -%}
+              {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+              {{ section.settings.logo | image_url: width: section.settings.width | image_tag:
+                class: 'header__heading-logo',
+                widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                height: logo_height,
+                width: section.settings.logo_width,
+                alt: logo_alt
+              }}
+            {%- else -%}
+              <span class="h2">{{ shop.name }}</span>
+            {%- endif -%}
+          </a>
+      {%- if request.page_type == 'index' -%}
+        </h1>
+      {%- endif -%}
     {%- endif -%}
 
     {%- if section.settings.menu != blank -%}
@@ -434,7 +435,7 @@
                     </details>
                   </header-menu>
                 {%- else -%}
-                  <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
+                  <a href="{{ link.url }}" class="header__menu-item list-menu__item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
                     <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
                   </a>
                 {%- endif -%}
@@ -479,7 +480,7 @@
                     </details>
                   </header-menu>
                 {%- else -%}
-                  <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
+                  <a href="{{ link.url }}" class="header__menu-item list-menu__item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
                     <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
                   </a>
                 {%- endif -%}
@@ -487,6 +488,30 @@
             {%- endfor -%}
           </ul>
         </nav>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.logo_position == 'middle-center' -%}
+      {%- if request.page_type == 'index' -%}
+        <h1 class="header__heading">
+      {%- endif -%}
+          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+            {%- if section.settings.logo != blank -%}
+              {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+              {{ section.settings.logo | image_url: width: section.settings.width | image_tag:
+                class: 'header__heading-logo',
+                widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                height: logo_height,
+                width: section.settings.logo_width,
+                alt: logo_alt
+              }}
+            {%- else -%}
+              <span class="h2">{{ shop.name }}</span>
+            {%- endif -%}
+          </a>
+      {%- if request.page_type == 'index' -%}
+        </h1>
       {%- endif -%}
     {%- endif -%}
 
@@ -597,8 +622,35 @@
           </div>
         {%- endif -%}
       </a>
-    </div>
+    </div>   
   </header>
+                          
+<!-- BEGIN: SECONDARY NAV -->
+    <div class="shop-menu">
+      <ul>
+        {% for link in linklists.shop-menu.links %}
+          {%- if link.links != blank -%}
+            <li class="shop-menu__item has-submenu">
+              <a href="{{ link.url }}">{{ link.title }} {% render 'icon-caret' %}</a>
+              <ul class="shop-submenu">
+                {% for link in link.links %}
+                  <li class="shop-submenu__item">
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+                {% endfor %}                
+              </ul>
+            </li>
+          {%- else -%}
+            <li class="shop-menu__item">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {%- endif -%}
+        {% endfor %}
+      </ul>
+    </div>
+<!-- END: SECONDARY NAV!-->
+
+                          
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
@@ -790,21 +842,24 @@
       "id": "logo_position",
       "options": [
         {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
           "value": "top-left",
           "label": "t:sections.header.settings.logo_position.options__2.label"
         },
         {
           "value": "top-center",
           "label": "t:sections.header.settings.logo_position.options__3.label"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:sections.header.settings.logo_position.options__1.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.header.settings.logo_position.options__4.label"
         }
       ],
       "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label",
-      "info": "t:sections.header.settings.logo_position.info"
+      "label": "t:sections.header.settings.logo_position.label"
     },
     {
       "type": "link_list",
@@ -841,6 +896,26 @@
       "default": true,
       "label": "t:sections.header.settings.enable_sticky_header.label",
       "info": "t:sections.header.settings.enable_sticky_header.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.mobile_layout.content"
+    },
+    {
+      "type": "select",
+      "id": "mobile_logo_position",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.header.settings.mobile_logo_position.label"
     },
     {
       "type": "header",

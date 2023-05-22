@@ -1,21 +1,21 @@
 {
   "current": {
-    "colors_solid_button_labels": "{{ shop.brand.colors.primary[0].foreground }}",
-    "colors_accent_1": "{{ shop.brand.colors.primary[0].background }}",
+    "colors_solid_button_labels": "#fff",
+    "colors_accent_1": "{{ shop.brand.colors.secondary[1].background }}",
     "gradient_accent_1": "",
-    "colors_accent_2": "{{ shop.brand.colors.secondary[0].background }}",
+    "colors_accent_2": "{{ shop.brand.colors.primary[0].background }}",
     "gradient_accent_2": "",
-    "colors_text": "#3b3b3b",
-    "colors_outline_button_labels": "#000000",
-    "colors_background_1": "{{ shop.brand.colors.primary[0].foreground }}",
+    "colors_text": "#312e2c",
+    "colors_outline_button_labels": "#222222",
+    "colors_background_1": "#fff",
     "gradient_background_1": "",
-    "colors_background_2": "{{ shop.brand.colors.primary[0].foreground }}",
+    "colors_background_2": "#fff7ec",
     "gradient_background_2": "",
     "type_header_font": "poppins_n7",
-    "heading_scale": 105,
-    "type_body_font": "open_sans_n4",
-    "body_scale": 105,
-    "page_width": 1200,
+    "heading_scale": 100,
+    "type_body_font": "karla_n4",
+    "body_scale": 100,
+    "page_width": 1400,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 40,
     "spacing_grid_vertical": 40,
@@ -42,8 +42,8 @@
     "inputs_shadow_blur": 5,
     "card_style": "standard",
     "card_image_padding": 0,
-    "card_text_alignment": "center",
-    "card_color_scheme": "background-1",
+    "card_text_alignment": "left",
+    "card_color_scheme": "background-2",
     "card_border_thickness": 0,
     "card_border_opacity": 0,
     "card_corner_radius": 0,
@@ -51,6 +51,8 @@
     "card_shadow_horizontal_offset": 0,
     "card_shadow_vertical_offset": 0,
     "card_shadow_blur": 0,
+    "collection_card_style": "standard",
+    "collection_card_color_scheme": "background-1",
     "text_boxes_border_thickness": 0,
     "text_boxes_border_opacity": 0,
     "text_boxes_radius": 0,
@@ -86,7 +88,7 @@
     "social_twitter_link": "",
     "social_facebook_link": "http:\/\/facebook.com\/uprootdesignstudio.com",
     "social_pinterest_link": "http:\/\/pinterest.com\/uprootdesignstudio.com",
-    "social_instagram_link": "http:\/\/pinterest.com\/uprootdesignstudio.com",
+    "social_instagram_link": "http:\/\/instagram.com\/uprootdesignstudio.com",
     "social_tiktok_link": "",
     "social_tumblr_link": "",
     "social_snapchat_link": "",
@@ -97,14 +99,17 @@
     "predictive_search_show_price": false,
     "favicon": "shopify:\/\/shop_images\/favicon-min.png",
     "currency_code_enabled": true,
-    "cart_type": "notification",
+    "cart_type": "drawer",
     "show_vendor": false,
-    "show_cart_note": false,
+    "show_cart_note": true,
     "cart_drawer_collection": "",
-    "checkout_header_image": "shopify:\/\/shop_images\/Squarespace_site_bg_hero_copy_3.png",
+    "checkout_header_image": "shopify:\/\/shop_images\/2023_VDay_plants_pattern_vectorized_-_white.png",
     "checkout_logo_image": "shopify:\/\/shop_images\/DONE_FAVE_Logo_W_Detail_FLAT_Moss_W_Neon_Yellow_Transparent-withLine-300px.png",
-    "checkout_accent_color": "#ca822f",
-    "checkout_button_color": "#6c9114",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "large",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_accent_color": "#6c9114",
+    "checkout_button_color": "#fda4c3",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -114,6 +119,7 @@
             "disabled": true,
             "settings": {
               "text": "Sustainable self-care and gifting just got a whole lot easier.",
+              "text_alignment": "center",
               "color_scheme": "background-2",
               "link": ""
             }
@@ -127,15 +133,17 @@
       "header": {
         "type": "header",
         "settings": {
-          "color_scheme": "accent-1",
-          "logo_width": 120,
-          "logo_position": "top-center",
-          "menu": "main-menu",
+          "color_scheme": "accent-2",
+          "logo": "shopify:\/\/shop_images\/UDS_text_logo_for_website_237a7028-9bb7-4c9d-a2ae-342e7613e0ef.png",
+          "logo_width": 250,
+          "logo_position": "middle-center",
+          "menu": "uproot-design-studio",
           "menu_type_desktop": "dropdown",
           "show_line_separator": false,
-          "enable_sticky_header": true,
-          "margin_bottom": 20,
-          "padding_top": 20,
+          "enable_sticky_header": false,
+          "mobile_logo_position": "center",
+          "margin_bottom": 0,
+          "padding_top": 12,
           "padding_bottom": 20
         }
       },
@@ -150,37 +158,44 @@
               "menu": ""
             }
           },
-          "link-list-1": {
+          "text": {
+            "type": "text",
+            "settings": {
+              "heading": "UPROOT DESIGN STUDIO",
+              "subtext": "<p>© 2022 Julia Barry, UpRoot Design Studio<\/p><p><em>A project of <\/em><a href=\"http:\/\/juliabarryproductions.com\/\" target=\"_blank\"><em>Julia Barry Productions<\/em><\/a><\/p>"
+            }
+          },
+          "1be2e157-3c96-41cd-a8e1-68feb47aafda": {
+            "type": "text",
+            "settings": {
+              "heading": "About",
+              "subtext": "<p>UpRoot Design Studio provides sustainable home goods that make green living easy and fun. We create and share art, kits & tools that help everyday people contribute to a healthier world, starting right at home.<\/p>"
+            }
+          },
+          "6cc89bbf-0827-4f15-9b75-f7f49751a850": {
             "type": "link_list",
             "settings": {
               "heading": "More Infos",
               "menu": "footer"
             }
           },
-          "image": {
-            "type": "image",
+          "link-list-1": {
+            "type": "link_list",
             "settings": {
-              "image": "shopify:\/\/shop_images\/IMG_7528.jpg",
-              "image_width": 200,
-              "alignment": "right"
-            }
-          },
-          "text": {
-            "type": "text",
-            "settings": {
-              "heading": "Our mission",
-              "subtext": "<p>To provide responsibly-made beautiful and fun tools that encourage sustainable living, inside and out.<\/p>"
+              "heading": "Shop",
+              "menu": "shop-menu"
             }
           }
         },
         "block_order": [
           "link-list",
-          "link-list-1",
-          "image",
-          "text"
+          "text",
+          "1be2e157-3c96-41cd-a8e1-68feb47aafda",
+          "6cc89bbf-0827-4f15-9b75-f7f49751a850",
+          "link-list-1"
         ],
         "settings": {
-          "color_scheme": "accent-1",
+          "color_scheme": "inverse",
           "newsletter_enable": false,
           "newsletter_heading": "Subscribe to our emails",
           "show_social": true,
@@ -207,7 +222,19 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "15079184273603081885": {
+        "type": "shopify:\/\/apps\/essential-free-shipping-bar\/blocks\/app_embed\/4125375e-37c8-4137-949d-c4e1a3aac572",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Default": {
@@ -256,12 +283,34 @@
       "card_text_alignment": "center",
       "card_color_scheme": "background-1",
       "card_border_thickness": 0,
-      "card_border_opacity": 0,
+      "card_border_opacity": 10,
       "card_corner_radius": 0,
       "card_shadow_opacity": 10,
       "card_shadow_horizontal_offset": 0,
       "card_shadow_vertical_offset": 0,
       "card_shadow_blur": 0,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "center",
+      "collection_card_color_scheme": "background-1",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 10,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 0,
+      "collection_card_shadow_blur": 0,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "center",
+      "blog_card_color_scheme": "background-1",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 10,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 0,
+      "blog_card_shadow_blur": 0,
       "text_boxes_border_thickness": 0,
       "text_boxes_border_opacity": 0,
       "text_boxes_radius": 0,
@@ -319,6 +368,7 @@
               "type": "announcement",
               "settings": {
                 "text": "Welcome to our store",
+                "text_alignment": "center",
                 "color_scheme": "background-2",
                 "link": ""
               }
@@ -340,6 +390,7 @@
             "menu_type_desktop": "dropdown",
             "show_line_separator": false,
             "enable_sticky_header": true,
+            "mobile_logo_position": "center",
             "margin_bottom": 20,
             "padding_top": 20,
             "padding_bottom": 20
@@ -412,5 +463,13 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "img {background: none !important;}",
+      ".lazy-image {background: none !important;}",
+      "\/* Eliminating extra space between hero banner and top menu *\/#MainContent {margin-top: 0px !important;}",
+      "img.jdgm-carousel-item__product-image img {border-radius: 0px !important;}"
+    ]
   }
 }

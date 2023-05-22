@@ -2,9 +2,57 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 0
+      }
+    },
+    "caaeb950-0699-4713-87c2-90d1e49fd30a": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16672516767978__caaeb950-0699-4713-87c2-90d1e49fd30a-1681575461a12b04d1-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "We'd love to hear from you.",
+            "heading_size": "h1"
+          }
+        },
+        "template--16672516767978__caaeb950-0699-4713-87c2-90d1e49fd30a-1681575461a12b04d1-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Contact us using the form below with any questions or custom requests for wholesale, licensing, or comissions. We look forward to chatting soon!<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16672516767978__caaeb950-0699-4713-87c2-90d1e49fd30a-1681575461a12b04d1-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16672516767978__caaeb950-0699-4713-87c2-90d1e49fd30a-1681575461a12b04d1-0",
+        "template--16672516767978__caaeb950-0699-4713-87c2-90d1e49fd30a-1681575461a12b04d1-1",
+        "template--16672516767978__caaeb950-0699-4713-87c2-90d1e49fd30a-1681575461a12b04d1-2"
+      ],
+      "custom_css": [
+        "img {border-radius: 30px}"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/IMG_8201.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "form": {
@@ -16,10 +64,29 @@
         "padding_top": 40,
         "padding_bottom": 68
       }
+    },
+    "1684770806032105ec": {
+      "type": "apps",
+      "blocks": {
+        "ff5cb207-33be-4476-8988-5012cc6a8f22": {
+          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "ff5cb207-33be-4476-8988-5012cc6a8f22"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "caaeb950-0699-4713-87c2-90d1e49fd30a",
+    "form",
+    "1684770806032105ec"
   ]
 }
